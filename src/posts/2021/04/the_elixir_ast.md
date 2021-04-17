@@ -14,7 +14,7 @@ Exploring in detail the Elixir AST, and then using it to build a macro and a sta
 
 {% cover_img "a_deep_dive_into_the_elixir_ast_cover.png" "iex> quote do: sum(1, 2, 3); {:sum, [], [1, 2, 3]" %}
 
-Before I start, I want to thank GenericJam from the [Elixir Discord server](https://discord.com/invite/elixir) for motivating me to write this article, and to Łukasz Jan Niemier (aka @hauleth) for pointing me to the missing pieces I needed to have a complete picture of the AST shape.
+Before I start, I want to thank GenericJam from the [Elixir Discord server](https://discord.com/invite/elixir) for motivating me to write this article, and Łukasz Jan Niemier (aka @hauleth) for pointing me to the missing pieces I needed to have a complete picture of the AST shape.
 
 ---
 
@@ -377,7 +377,7 @@ defmodule Report do
   end
 end
 ```
-The plan is the following: we will define a `typedstruct` macro, and extract the struct data from the received AST to finally generate the the struct definition, typespec, and enforcing options. There are other ways to achieve this, but they involve the definition of more macros and, while they can improve error reporting and are generally ore easily extensible, they are too complex for the purposes of this exercise.
+The plan is the following: we will define a `typedstruct` macro, and extract the struct data from the received AST to finally generate the struct definition, typespec, and enforcing options. There are other ways to achieve this, but they involve the definition of more macros and, while they can improve error reporting and are generally more easily extensible, they are too complex for the purposes of this exercise.
 
 Let's start by creating the macro:
 ```elixir
